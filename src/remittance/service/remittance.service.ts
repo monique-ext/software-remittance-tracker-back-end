@@ -12,6 +12,15 @@ export class RemittanceService {
     ) { }
 
     async store(params) {
+
+        if (typeof params === "string") {
+            try {
+                params = JSON.parse(params);
+            } catch (err) {
+                throw new Error("Payload inválido. Não foi possível fazer JSON.parse");
+            }
+        }
+
         const filename = params.result[0].filename;
 
         const area = /^.{3}f/i.test(filename) ? "rh" : "tesouraria";
