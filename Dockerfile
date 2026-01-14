@@ -7,7 +7,7 @@ COPY package*.json ./
 
 RUN npm config set strict-ssl false
 
-RUN npm install
+RUN npm install --force
 
 RUN npm config set strict-ssl true
 
