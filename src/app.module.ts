@@ -5,6 +5,7 @@ import { RemittanceController } from "./remittance/controller/remittance.control
 import { RemittanceService } from "./remittance/service/remittance.service";
 import { Remittance } from "./remittance/entity/remittance.entity";
 import { getModelForClass } from "@typegoose/typegoose";
+import { NexxeraCronService } from "./remittance/routine/routine.service";
 
 @Module({
   imports: [
@@ -23,6 +24,6 @@ import { getModelForClass } from "@typegoose/typegoose";
     ]),
   ],
   controllers: [RemittanceController],
-  providers: [RemittanceService],
+  providers: [RemittanceService, NexxeraCronService],
 })
 export class AppModule { }
